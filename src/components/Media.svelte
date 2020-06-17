@@ -33,7 +33,7 @@
 	}
 </script>
 
-<main class="shadow-2xl rounded-md bg-cover transform hover:-translate-y-2 transition-transform duration-300	" style='background-image: url({poster})'>
+<main class="shadow-2xl rounded-md bg-cover transform hover:-translate-y-2 transition-transform duration-300" style='background-image: url({poster})'>
 	<section class="flex flex-col justify-between bg-opacity-25 text-white bg-black h-full p-4">
 		<div>
 		

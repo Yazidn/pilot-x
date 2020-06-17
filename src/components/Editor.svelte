@@ -47,26 +47,30 @@
 	}
 </script>
 
-<main class="flex justify-evenly">
+<main>
 	{#if fullEditor}
-		<button on:click={removeMedia} title='Remove'><i class="fas fa-trash-alt"></i></button>
-		<button on:click={() => editEpisode(true)} title='Next Episode'><i class="fas fa-angle-right"></i></button>
-		<button on:click={() => editSeason(true)} title='Next Season'><i class="fas fa-angle-double-right"></i></button>
-		<button on:click={() => editEpisode(false)} title='Previous Episode'><i class="fas fa-angle-left"></i></button>
-		<button on:click={() => editSeason(false)} title='Previous Season'><i class="fas fa-angle-double-left"></i></button>
+		<div class="flex flex-col">
+			<button class="px-2 my-2 bg-green-600 text-white rounded-md" on:click={() => editEpisode(true)} title='Next Episode'><i class="fas fa-angle-right"></i> Next Episode</button>
+			<button class="px-2 my-2 bg-green-600 text-white rounded-md" on:click={() => editSeason(true)} title='Next Season'><i class="fas fa-angle-double-right"></i> Next Season</button>
+			<button class="px-2 my-2 bg-yellow-400 rounded-md" on:click={() => editEpisode(false)} title='Previous Episode'><i class="fas fa-angle-left"></i> Previous Episode</button>
+			<button class="px-2 my-2 bg-yellow-400 rounded-md" on:click={() => editSeason(false)} title='Previous Season'><i class="fas fa-angle-double-left"></i> Previous Season</button>
+			<button class="px-2 my-2 bg-red-600 text-white rounded-md" on:click={removeMedia} title='Remove'><i class="fas fa-trash-alt"></i> Remove</button>
 
-		<label><input type="checkbox" bind:checked={displaySetLink}> Set link</label>
-		{#if displaySetLink}
-			<section>
-				<input type="url" placeholder="Link to watch" bind:value={link}>
-				<button on:click={setLink}>Set</button>
-			</section>
-		{/if}
+			<label><input class="m-2" type="checkbox" bind:checked={displaySetLink}> Set link</label>
+			{#if displaySetLink}
+				<section>
+					<input type="url" placeholder="Link to watch" bind:value={link}>
+					<button on:click={setLink}>Set</button>
+				</section>
+			{/if}
 
-		<label><input type="checkbox" bind:checked={watchLater} on:change={setWatchLater}> Watch later</label>
+			<label><input class="m-2" type="checkbox" bind:checked={watchLater} on:change={setWatchLater}> Watch later</label>
+		</div>
 	{:else}
-		<button on:click={removeMedia} title='Remove'><i class="fas fa-trash-alt"></i></button>
-		<button on:click={() => editEpisode(true)} title='Next Episode'><i class="fas fa-angle-right"></i></button>
-		<button on:click={() => editSeason(true)} title='Next Season'><i class="fas fa-angle-double-right"></i></button>
+		<div class="flex justify-evenly">
+			<button on:click={removeMedia} title='Remove'><i class="fas fa-trash-alt"></i></button>
+			<button on:click={() => editEpisode(true)} title='Next Episode'><i class="fas fa-angle-right"></i></button>
+			<button on:click={() => editSeason(true)} title='Next Season'><i class="fas fa-angle-double-right"></i></button>
+		</div>
 	{/if}
 </main>

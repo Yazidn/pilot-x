@@ -17,12 +17,15 @@
 	}
 </script>
 
-<main class="fixed top-0 h-full w-full flex z-10 bg-white" on:click|self={() => dispatch('hideDetails')}>
+<main class="p-8 fixed z-20 bg-white top-0 right-0 bottom-0 left-0 flex justify-between" on:click|self={() => dispatch('hideDetails')}>
 	{#await MEDIA}
 		<p>Loading...</p>
 	{:then media}
-		<img src={media.Poster} title='Poster of {media.Title}' alt='Poster of {media.Title}'>
-		<section>
+		<div>
+			<img class="shadow-2xl rounded-md" src={media.Poster} title='Poster of {media.Title}' alt='Poster of {media.Title}'>
+		</div>
+
+		<section class="px-4 w-2/4">
 			<h3>Details</h3>
 			{#each Object.keys(media) as key}
 				{#if key === 'totalSeasons'}
@@ -38,14 +41,17 @@
 				{/if}
 			{/each}
 		</section>
-		<aside>
-			<h3>{season}</h3>
-			<h2>{episode}</h2>
+
+		<aside class="px-8">
+			<h3 class="text-xl font-thin">Season {season}</h3>
+			<h2 class="text-2xl">Episode {episode}</h2>
+
 			<Editor {id} fullEditor={true} {link} {watchLater} />
 
 			{#if link}
 				<a target="_blank" href={link}>Watch {title}</a>
 			{/if}
 		</aside>
+
 	{/await}
 </main>
