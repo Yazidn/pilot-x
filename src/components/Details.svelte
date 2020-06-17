@@ -1,16 +1,16 @@
 <script>
-	import {MediaStore, MediaDetailsStore, Config} from '../stores.js';
+	import { key } from '../env.js';
+	import {MediaStore, MediaDetailsStore} from '../stores.js';
 	import {createEventDispatcher} from 'svelte';
 	import Editor from './Editor.svelte';
 
-	const akey = $Config.apiKey;
 	const dispatch = createEventDispatcher();
 	export let id, season, episode, title, link, misc;
 	$: watchLater = misc.watchLater;
 	const MEDIA = new Promise((resolve, reject) => resolve($MediaDetailsStore.find(m => m.id === id) || fetchMediaDetails()))
 
 	async function fetchMediaDetails() {
-		const response = await fetch(`https://www.omdbapi.com/?apikey=${akey}&t=${title}`);
+		const response = await fetch(`https://www.omdbapi.com/?apikey=${key}&t=${title}`);
 		const media = await response.json();
 		MediaDetailsStore.update(store => [{id, ...media}, ...store])
 		return media;

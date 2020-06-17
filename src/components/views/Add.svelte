@@ -1,13 +1,13 @@
 <script>
-	import {MediaStore, MediaDetailsStore, Config, Preferences} from '../../stores.js';
+	import { key } from '../../env.js';
+	import {MediaStore, MediaDetailsStore, Preferences} from '../../stores.js';
 	import {current} from '../../router.js';
 
-	const akey = $Config.apiKey;
 	let media = {}, mediaDetails = {}, value = '', found, notfound, imdbID = '';
 	let advanced = $Preferences.advancedSearch;
 
 	async function find() {
-		let url = `https://www.omdbapi.com/?apikey=${akey}${value ? `&t=${value}`: ``}${imdbID ? `&i=${imdbID}`: ``}`;
+		let url = `https://www.omdbapi.com/?apikey=${key}${value ? `&t=${value}`: ``}${imdbID ? `&i=${imdbID}`: ``}`;
 		const response = await fetch(url);
 		if (response.ok) {
 			const json = await response.json();

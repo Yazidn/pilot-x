@@ -1,5 +1,5 @@
 import {writable} from 'svelte/store';
-const Config = writable({apiKey: '27672a84'});
+
 const MediaStore = writable(JSON.parse(localStorage.getItem('MediaStore')) || []);
 const MediaDetailsStore = writable(JSON.parse(localStorage.getItem('MediaDetailsStore')) || []);
 const Preferences = writable(JSON.parse(localStorage.getItem('Preferences')) || {
@@ -9,9 +9,4 @@ const Preferences = writable(JSON.parse(localStorage.getItem('Preferences')) || 
 	displayType: true
 });
 
-export {
-	Config,
-	MediaStore,
-	MediaDetailsStore,
-	Preferences
-}
+export { MediaStore, MediaDetailsStore, Preferences }
