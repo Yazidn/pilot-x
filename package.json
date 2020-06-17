@@ -1,6 +1,6 @@
 {
-  "name": "svelte-app",
-  "version": "1.0.0",
+  "name": "pilot-x",
+  "version": "0.1.0",
   "scripts": {
     "watch:tailwind": "postcss public/tailwind.css -o public/index.css -w",
     "build:tailwind": "NODE_ENV=production postcss public/tailwind.css -o public/index.css",
