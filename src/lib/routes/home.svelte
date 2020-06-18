@@ -1,12 +1,12 @@
 <script>
   import { MediaStore, MediaDetailsStore } from "../../stores.js";
   import Media from "../media.svelte";
-  import { flip } from 'svelte/animate';
+  import { flip } from "svelte/animate";
 </script>
 
 <main class="cards p-8">
   {#each $MediaStore as media (media.id)}
-    <div animate:flip={{duration: 300, delay: 300}}>
+    <div animate:flip={{ duration: 300, delay: 300 }}>
       <Media {...media} />
     </div>
   {:else}

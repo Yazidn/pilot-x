@@ -57,66 +57,64 @@
 
 <main>
   {#if fullEditor}
-    <div class="flex flex-col my-4">
+    <!-- Details Editor -->
+    <div class="flex flex-col mb-8">
 
       {#if !watchLater}
-      <div class="flex my-4 justify-between">
-        {#if link}
-          <a
-            class="text-blue-800 font-normal hover:text-blue-600"
-            target="_blank"
-            href={link}
-            title="Watch {title}">
-            <button
-              class="h-12 w-12 shadow-lg rounded-full hover:bg-black
-              hover:text-white"
-              on:click={() => editEpisode(true)}>
-              <i class="fas fa-tv" />
-            </button>
+        <!-- Editor Buttons -->
+        <div class="flex justify-between mb-8">
+          {#if link}
+            <a target="_blank" href={link} title="Watch {title}">
+              <button
+                class="h-12 w-12 shadow-lg rounded-full hover:bg-blue-500
+                hover:text-white"
+                on:click={() => editEpisode(true)}>
+                <i class="fas fa-tv" />
+              </button>
+            </a>
+          {/if}
 
-          </a>
-        {/if}
+          <button
+            class="h-12 w-12 shadow-lg rounded-full hover:bg-green-500
+            hover:text-white"
+            on:click={() => editEpisode(true)}
+            title="Next Episode">
+            <i class="fas fa-angle-right" />
+          </button>
 
-        <button
-          class="h-12 w-12 shadow-lg rounded-full hover:bg-black
-          hover:text-white"
-          on:click={() => editEpisode(true)}
-          title="Next Episode">
-          <i class="fas fa-angle-right" />
-        </button>
-        <button
-          class="h-12 w-12 shadow-lg rounded-full hover:bg-black
-          hover:text-white"
-          on:click={() => editSeason(true)}
-          title="Next Season">
-          <i class="fas fa-angle-double-right" />
-        </button>
+          <button
+            class="h-12 w-12 shadow-lg rounded-full hover:bg-green-500
+            hover:text-white"
+            on:click={() => editSeason(true)}
+            title="Next Season">
+            <i class="fas fa-angle-double-right" />
+          </button>
 
-        <button
-          class="h-12 w-12 shadow-lg rounded-full hover:bg-black
-          hover:text-white"
-          on:click={() => editEpisode(false)}
-          title="Previous Episode">
-          <i class="fas fa-angle-left" />
-        </button>
-        <button
-          class="h-12 w-12 shadow-lg rounded-full hover:bg-black
-          hover:text-white"
-          on:click={() => editSeason(false)}
-          title="Previous Season">
-          <i class="fas fa-angle-double-left" />
-        </button>
+          <button
+            class="h-12 w-12 shadow-lg rounded-full hover:bg-yellow-400"
+            on:click={() => editEpisode(false)}
+            title="Previous Episode">
+            <i class="fas fa-angle-left" />
+          </button>
 
-        <button
-          class="h-12 w-12 shadow-lg rounded-full hover:bg-black
-          hover:text-white"
-          on:click={removeMedia}
-          title="Remove">
-          <i class="fas fa-trash-alt" />
-        </button>
-      </div>
+          <button
+            class="h-12 w-12 shadow-lg rounded-full hover:bg-yellow-400"
+            on:click={() => editSeason(false)}
+            title="Previous Season">
+            <i class="fas fa-angle-double-left" />
+          </button>
+
+          <button
+            class="h-12 w-12 shadow-lg rounded-full hover:bg-red-500
+            hover:text-white"
+            on:click={removeMedia}
+            title="Remove">
+            <i class="fas fa-trash-alt" />
+          </button>
+        </div>
       {/if}
 
+      <!-- Editor Checkbox Inputs -->
       <label>
         <input
           class="m-2"
@@ -135,6 +133,7 @@
         </label>
       {/if}
 
+      <!-- Watch Link Editor -->
       {#if displaySetLink}
         <section class="flex w-full">
           <input
@@ -154,6 +153,7 @@
 
     </div>
   {:else}
+    <!-- Quick Editor -->
     <div class="flex justify-evenly">
       <button on:click={removeMedia} title="Remove">
         <i class="fas fa-trash-alt" />
