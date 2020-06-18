@@ -6,7 +6,7 @@
 
 <main class="cards p-8">
   {#each $MediaStore as media (media.id)}
-    <div animate:flip={{duration: 700}}>
+    <div animate:flip={{duration: 300, delay: 300}}>
       <Media {...media} />
     </div>
   {:else}
