@@ -35,7 +35,7 @@
 </script>
 
 <main
-  class="shadow-2xl rounded-md bg-cover transform hover:-translate-y-2
+  class="h-full shadow-2xl rounded-md bg-cover transform hover:-translate-y-2
   transition-transform duration-300"
   style="background-image: url({poster})">
   <section
