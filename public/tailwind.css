@@ -3,22 +3,21 @@
 @tailwind utilities;
 
 .cards {
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    grid-auto-rows: 280px;
-    grid-auto-columns: fit-content(200px);
-    grid-gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-auto-rows: 280px;
+  grid-auto-columns: fit-content(200px);
+  grid-gap: 2rem;
 }
 
 .found {
-    @apply bg-green-500;
+  @apply bg-green-500;
 }
 
 .notfound {
-    @apply bg-red-500;
+  @apply bg-red-500;
 }
 
 .gradient {
-    /* background: linear-gradient(#000, #fff); */
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
 }

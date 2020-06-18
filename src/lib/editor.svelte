@@ -4,7 +4,8 @@
   export let id,
     watchLater = false;
   export let fullEditor = false,
-    link = "", title = "";
+    link = "",
+    title = "";
 
   function setWatchLater() {
     MediaStore.update(store => {
@@ -58,79 +59,94 @@
   {#if fullEditor}
     <div class="flex flex-col my-4">
 
-
       <div class="flex my-4 justify-between">
-            {#if link}
-        <a class="text-blue-800 font-normal hover:text-blue-600" target="_blank" href={link} title="Watch {title}">
+        {#if link}
+          <a
+            class="text-blue-800 font-normal hover:text-blue-600"
+            target="_blank"
+            href={link}
+            title="Watch {title}">
             <button
-        class="h-12 w-12 shadow-lg rounded-full hover:bg-black hover:text-white"
-        on:click={() => editEpisode(true)}>
-        <i class="fas fa-tv"></i>
-      </button>
-        
-        </a>
-      {/if}
+              class="h-12 w-12 shadow-lg rounded-full hover:bg-black
+              hover:text-white"
+              on:click={() => editEpisode(true)}>
+              <i class="fas fa-tv" />
+            </button>
 
-
-      <button
-        class="h-12 w-12 shadow-lg rounded-full hover:bg-black hover:text-white"
-        on:click={() => editEpisode(true)}
-        title="Next Episode">
-        <i class="fas fa-angle-right" />
-      </button>
-      <button
-        class="h-12 w-12 shadow-lg rounded-full hover:bg-black hover:text-white"
-        on:click={() => editSeason(true)}
-        title="Next Season">
-        <i class="fas fa-angle-double-right" />
-      </button>
+          </a>
+        {/if}
 
         <button
-          class="h-12 w-12 shadow-lg rounded-full hover:bg-black hover:text-white"
+          class="h-12 w-12 shadow-lg rounded-full hover:bg-black
+          hover:text-white"
+          on:click={() => editEpisode(true)}
+          title="Next Episode">
+          <i class="fas fa-angle-right" />
+        </button>
+        <button
+          class="h-12 w-12 shadow-lg rounded-full hover:bg-black
+          hover:text-white"
+          on:click={() => editSeason(true)}
+          title="Next Season">
+          <i class="fas fa-angle-double-right" />
+        </button>
+
+        <button
+          class="h-12 w-12 shadow-lg rounded-full hover:bg-black
+          hover:text-white"
           on:click={() => editEpisode(false)}
           title="Previous Episode">
           <i class="fas fa-angle-left" />
         </button>
         <button
-          class="h-12 w-12 shadow-lg rounded-full hover:bg-black hover:text-white"
+          class="h-12 w-12 shadow-lg rounded-full hover:bg-black
+          hover:text-white"
           on:click={() => editSeason(false)}
           title="Previous Season">
           <i class="fas fa-angle-double-left" />
         </button>
 
-      <button
-      class="h-12 w-12 shadow-lg rounded-full hover:bg-black hover:text-white"
-        on:click={removeMedia}
-        title="Remove">
-        <i class="fas fa-trash-alt" />
-      </button>
+        <button
+          class="h-12 w-12 shadow-lg rounded-full hover:bg-black
+          hover:text-white"
+          on:click={removeMedia}
+          title="Remove">
+          <i class="fas fa-trash-alt" />
+        </button>
       </div>
 
-      <!-- <div class="flex"> -->
-      <!-- </div> -->
-
-
-        <label>
+      <label>
         <input
           class="m-2"
           type="checkbox"
           bind:checked={watchLater}
           on:change={setWatchLater} />
-        <i class="fas fa-clock" /> Later
+        <i class="fas fa-clock" />
+        Later
       </label>
 
-        <label>
+      <label>
         <input class="m-2" type="checkbox" bind:checked={displaySetLink} />
-        <i class="fas fa-link"></i> Link
+        <i class="fas fa-link" />
+        Link
       </label>
-      
+
       {#if displaySetLink}
         <section class="flex w-full">
-          <input class="mr-2 flex-grow shadow-md h-12 rounded-md px-4" type="url" placeholder="Link to watch" bind:value={link} on:keydown={e => (e.which === 13 || e.which === 27 ? setLink() : '')}/>
-          <button class="ml-2 h-12 w-12 shadow-lg rounded-full hover:bg-black hover:text-white" on:click={setLink}><i class="fas fa-check" /></button>
+          <input
+            class="mr-2 flex-grow shadow-md h-12 rounded-md px-4"
+            type="url"
+            placeholder="Link to watch"
+            bind:value={link}
+            on:keydown={e => (e.which === 13 || e.which === 27 ? setLink() : '')} />
+          <button
+            class="ml-2 h-12 w-12 shadow-lg rounded-full hover:bg-black
+            hover:text-white"
+            on:click={setLink}>
+            <i class="fas fa-check" />
+          </button>
         </section>
       {/if}
-
 
     </div>
   {:else}

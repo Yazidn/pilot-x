@@ -24,52 +24,76 @@
 <main
   class="p-8 fixed bg-white z-20 top-0 left-0 h-full w-full"
   on:click|self={() => dispatch('hideDetails')}>
-        <aside class="leading-none">
-        <Editor {id} fullEditor={true} {link} {watchLater} {title}/>
+  <aside class="leading-none">
+    <Editor {id} fullEditor={true} {link} {watchLater} {title} />
 
-      <h3 class="text-xl font-thin">Season {season}</h3>
-      <h2 class="text-4xl mb-4 font-thin">Episode {episode}</h2>
+    <h3 class="text-xl font-thin">Season {season}</h3>
+    <h2 class="text-4xl mb-4 font-thin">Episode {episode}</h2>
 
-      <!-- {#if link}
-        <a class="text-blue-800 font-normal hover:text-blue-600" target="_blank" href={link}>Watch <span class="font-thin">{title}</span></a>
-      {/if} -->
-
-      
-
-    </aside>
+  </aside>
 
   <div class="flex">
     {#await MEDIA}
-        <img
+      <img
         class="h-20"
-          src="https://via.placeholder.com/300x453"
-          title="Placeholder"
-          alt="Placeholder Poster" />
+        src="https://via.placeholder.com/300x453"
+        title="Placeholder"
+        alt="Placeholder Poster" />
 
       <section class="ml-4">
         <h3 class="text-xl">Details</h3>
         <p>Loading...</p>
-        <p><span class="font-bold">Cast: </span>Loading...</p>
-        <p><span class="font-bold">Genre: </span>Loading...</p>
-        <p><span class="font-bold">Plot: </span> Loading...</p>
-        <p><span class="font-bold">Year: </span> Loading...</p>
-        <p><span class="font-bold">Runtime: </span> Loading...</p>
+        <p>
+          <span class="font-bold">Cast:</span>
+          Loading...
+        </p>
+        <p>
+          <span class="font-bold">Genre:</span>
+          Loading...
+        </p>
+        <p>
+          <span class="font-bold">Plot:</span>
+          Loading...
+        </p>
+        <p>
+          <span class="font-bold">Year:</span>
+          Loading...
+        </p>
+        <p>
+          <span class="font-bold">Runtime:</span>
+          Loading...
+        </p>
       </section>
     {:then media}
-        <img
+      <img
         class="h-20"
-          src={media.Poster}
-          title="Poster of {media.Title}"
-          alt="Poster of {media.Title}" />
+        src={media.Poster}
+        title="Poster of {media.Title}"
+        alt="Poster of {media.Title}" />
 
       <section class="ml-4">
         <h3 class="text-xl">Details</h3>
         <p>{media.Title}</p>
-        <p><span class="font-bold">Cast: </span>{media.Actors}</p>
-        <p><span class="font-bold">Genre: </span>{media.Genre}</p>
-        <p><span class="font-bold">Plot: </span> {media.Plot}</p>
-        <p><span class="font-bold">Year: </span> {media.Year}</p>
-        <p><span class="font-bold">Runtime: </span> {media.Runtime}</p>
+        <p>
+          <span class="font-bold">Cast:</span>
+          {media.Actors}
+        </p>
+        <p>
+          <span class="font-bold">Genre:</span>
+          {media.Genre}
+        </p>
+        <p>
+          <span class="font-bold">Plot:</span>
+          {media.Plot}
+        </p>
+        <p>
+          <span class="font-bold">Year:</span>
+          {media.Year}
+        </p>
+        <p>
+          <span class="font-bold">Runtime:</span>
+          {media.Runtime}
+        </p>
       </section>
     {/await}
   </div>
