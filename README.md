@@ -6,10 +6,10 @@ that i haven't started working on yet.
 ### Homepage
 ![pilotx homepage](https://i.imgur.com/JPERvny.jpg)
 
-### Homepage
+### Adding
 ![pilotx add](https://i.imgur.com/abWxP40.png)
 
-### Homepage
+### Preferences
 ![pilotx preferences](https://i.imgur.com/SM8zrz9.png)
 
 ## Notes
