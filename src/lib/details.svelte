@@ -22,56 +22,40 @@
 </script>
 
 <main
-  class="p-8 fixed z-20 bg-white top-0 right-0 bottom-0 left-0 flex
-  justify-between"
+  class="p-8 fixed bg-white z-20 top-0 left-0 h-full w-full"
   on:click|self={() => dispatch('hideDetails')}>
-  {#await MEDIA}
-    <p>Loading...</p>
-  {:then media}
-    <div>
-      <img
-        class="shadow-2xl rounded-md"
-        src={media.Poster}
-        title="Poster of {media.Title}"
-        alt="Poster of {media.Title}" />
-    </div>
+        <aside>
+      <h3 class="text-3xl">Season {season}</h3>
+      <h2 class="text-4xl mb-4">Episode {episode}</h2>
 
-    <section class="px-4 w-2/4">
-      <h3>Details</h3>
-      {#each Object.keys(media) as key}
-        {#if key === 'totalSeasons'}
-          <p>
-            Seasons:
-            <span>{media[key]}</span>
-          </p>
-        {:else if key !== 'id' && key !== 'Response' && key !== 'Poster' && key !== 'Ratings'}
-          <p>
-            {key}:
-            <span>{media[key]}</span>
-          </p>
-        {/if}
-        {#if key === 'Ratings'}
-          <h3>Ratings</h3>
-          {#each media[key] as rating}
-            <p class="rating">
-              {rating.Source}:
-              <span>{rating.Value}</span>
-            </p>
-          {/each}
-        {/if}
-      {/each}
-    </section>
-
-    <aside class="px-8">
-      <h3 class="text-xl font-thin">Season {season}</h3>
-      <h2 class="text-2xl">Episode {episode}</h2>
+      {#if link}
+        <a class="text-blue-800 font-normal hover:text-blue-600" target="_blank" href={link}>Watch <span class="font-thin">{title}</span></a>
+      {/if}
 
       <Editor {id} fullEditor={true} {link} {watchLater} />
 
-      {#if link}
-        <a target="_blank" href={link}>Watch {title}</a>
-      {/if}
     </aside>
 
-  {/await}
+  <div class="flex">
+    {#await MEDIA}
+      <p>Loading...</p>
+    {:then media}
+        <img
+        class="h-20"
+          src={media.Poster}
+          title="Poster of {media.Title}"
+          alt="Poster of {media.Title}" />
+
+      <section class="ml-4">
+        <h3 class="text-xl">Details</h3>
+        <p>{media.Title}</p>
+        <p><span class="font-bold">Cast: </span>{media.Actors}</p>
+        <p><span class="font-bold">Genre: </span>{media.Genre}</p>
+        <p><span class="font-bold">Plot: </span> {media.Plot}</p>
+        <p><span class="font-bold">Year: </span> {media.Year}</p>
+        <p><span class="font-bold">Runtime: </span> {media.Runtime}</p>
+      </section>
+    {/await}
+  </div>
+
 </main>
