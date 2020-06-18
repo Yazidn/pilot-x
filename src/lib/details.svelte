@@ -2,7 +2,7 @@
 	import { key } from '../env.js';
 	import {MediaStore, MediaDetailsStore} from '../stores.js';
 	import {createEventDispatcher} from 'svelte';
-	import Editor from './Editor.svelte';
+	import Editor from './editor.svelte';
 
 	const dispatch = createEventDispatcher();
 	export let id, season, episode, title, link, misc;

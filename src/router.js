@@ -1,6 +1,6 @@
-import Home from './components/views/Home.svelte';
-import Add from './components/views/Add.svelte';
-import Preferences from './components/views/Preferences.svelte';
+import Home from './lib/routes/home.svelte';
+import Add from './lib/routes/add.svelte';
+import Preferences from './lib/routes/preferences.svelte';
 import {writable} from 'svelte/store';
 const router = {
     'home': Home,

@@ -3,10 +3,10 @@
 	let displayEditor = $Preferences.displayEditor;
 	let displayType = $Preferences.displayType;
 
-	import Details from './Details.svelte';
+	import Details from './details.svelte';
 	let showDetails = false;
 
-	import Editor from './Editor.svelte';
+	import Editor from './editor.svelte';
 
 	export let id, type, title, poster, season, seasonLimit, episode, timestamp, link, misc;
 	$: watchLater = misc.watchLater;

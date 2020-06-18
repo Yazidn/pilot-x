@@ -1,6 +1,6 @@
 <script>
 	import {Preferences} from '../../stores.js';
-	import BackupRestore from '../BackupRestore.svelte';
+	import BackupRestore from '../backup_restore.svelte';
 </script>
 
 <main class="p-8 flex flex-col">
