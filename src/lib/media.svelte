@@ -42,7 +42,7 @@
   transition-transform duration-300"
   style="background-image: url({poster})">
   <section
-    class="flex flex-col justify-between bg-opacity-25 text-white bg-black
+    class="flex flex-col justify-between text-white gradient
     h-full p-4">
     <div>
 

@@ -17,3 +17,8 @@
 .notfound {
     @apply bg-red-500;
 }
+
+.gradient {
+    /* background: linear-gradient(#000, #fff); */
+    background: linear-gradient(#00000066, #00000000);
+}

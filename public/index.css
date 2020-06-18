@@ -14357,6 +14357,11 @@ video {
   background-color: rgba(245, 101, 101, var(--bg-opacity));
 }
 
+.gradient {
+  /* background: linear-gradient(#000, #fff); */
+  background: linear-gradient(#00000066, #00000000);
+}
+
 @media (min-width: 640px) {
   .sm\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
