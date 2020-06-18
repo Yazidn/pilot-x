@@ -3,9 +3,15 @@ A rewrite of pilot. using Svelte this time, the goal with this was for it to be 
 that i haven't started working on yet.
 
 # Screenshot
-![pilotx](https://i.imgur.com/JPERvny.jpg)
+### Homepage
+![pilotx homepage](https://i.imgur.com/JPERvny.jpg)
+
+### Homepage
+![pilotx add](https://i.imgur.com/abWxP40.png)
+
+### Homepage
+![pilotx preferences](https://i.imgur.com/SM8zrz9.png)
 
 ## Notes
-- This is still a work in progress, it'll get better over time.
-- Built in [Svelte](https://svelte.dev/)
-- Used [TailwindCSS](https://tailwindcss.com/)
+- This is still a work in progress (more like unfinished), it'll get better over time.
+- Built in [Svelte](https://svelte.dev/) & Styled with [TailwindCSS](https://tailwindcss.com)
