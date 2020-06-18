@@ -20,5 +20,5 @@
 
 .gradient {
     /* background: linear-gradient(#000, #fff); */
-    background: linear-gradient(#00000066, #00000000);
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
 }
