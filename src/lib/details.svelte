@@ -25,10 +25,14 @@
   class="p-8 fixed bg-white z-20 top-0 left-0 h-full w-full"
   on:click|self={() => dispatch('hideDetails')}>
   <aside class="leading-none">
+
     <Editor {id} fullEditor={true} {link} {watchLater} {title} />
 
-    <h3 class="text-xl font-thin">Season {season}</h3>
-    <h2 class="text-4xl mb-4 font-thin">Episode {episode}</h2>
+
+    {#if !watchLater}
+      <h3 class="text-xl font-thin">Season {season}</h3>
+      <h2 class="text-4xl mb-4 font-thin">Episode {episode}</h2>
+    {/if}
 
   </aside>
 

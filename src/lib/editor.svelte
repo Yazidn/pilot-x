@@ -59,6 +59,7 @@
   {#if fullEditor}
     <div class="flex flex-col my-4">
 
+      {#if !watchLater}
       <div class="flex my-4 justify-between">
         {#if link}
           <a
@@ -114,6 +115,7 @@
           <i class="fas fa-trash-alt" />
         </button>
       </div>
+      {/if}
 
       <label>
         <input
@@ -125,11 +127,13 @@
         Later
       </label>
 
-      <label>
-        <input class="m-2" type="checkbox" bind:checked={displaySetLink} />
-        <i class="fas fa-link" />
-        Link
-      </label>
+      {#if !watchLater}
+        <label>
+          <input class="m-2" type="checkbox" bind:checked={displaySetLink} />
+          <i class="fas fa-link" />
+          Link
+        </label>
+      {/if}
 
       {#if displaySetLink}
         <section class="flex w-full">
