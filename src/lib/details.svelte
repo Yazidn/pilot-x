@@ -24,21 +24,37 @@
 <main
   class="p-8 fixed bg-white z-20 top-0 left-0 h-full w-full"
   on:click|self={() => dispatch('hideDetails')}>
-        <aside>
-      <h3 class="text-3xl">Season {season}</h3>
-      <h2 class="text-4xl mb-4">Episode {episode}</h2>
+        <aside class="leading-none">
+        <Editor {id} fullEditor={true} {link} {watchLater} {title}/>
 
-      {#if link}
+      <h3 class="text-xl font-thin">Season {season}</h3>
+      <h2 class="text-4xl mb-4 font-thin">Episode {episode}</h2>
+
+      <!-- {#if link}
         <a class="text-blue-800 font-normal hover:text-blue-600" target="_blank" href={link}>Watch <span class="font-thin">{title}</span></a>
-      {/if}
+      {/if} -->
 
-      <Editor {id} fullEditor={true} {link} {watchLater} />
+      
 
     </aside>
 
   <div class="flex">
     {#await MEDIA}
-      <p>Loading...</p>
+        <img
+        class="h-20"
+          src="https://via.placeholder.com/300x453"
+          title="Placeholder"
+          alt="Placeholder Poster" />
+
+      <section class="ml-4">
+        <h3 class="text-xl">Details</h3>
+        <p>Loading...</p>
+        <p><span class="font-bold">Cast: </span>Loading...</p>
+        <p><span class="font-bold">Genre: </span>Loading...</p>
+        <p><span class="font-bold">Plot: </span> Loading...</p>
+        <p><span class="font-bold">Year: </span> Loading...</p>
+        <p><span class="font-bold">Runtime: </span> Loading...</p>
+      </section>
     {:then media}
         <img
         class="h-20"
