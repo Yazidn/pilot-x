@@ -1,75 +1,97 @@
 <script>
-	import {MediaStore, Preferences} from '../stores.js';
-	let displayEditor = $Preferences.displayEditor;
-	let displayType = $Preferences.displayType;
+  import { MediaStore, Preferences } from "../stores.js";
+  let displayEditor = $Preferences.displayEditor;
+  let displayType = $Preferences.displayType;
 
-	import Details from './details.svelte';
-	let showDetails = false;
+  import Details from "./details.svelte";
+  let showDetails = false;
 
-	import Editor from './editor.svelte';
+  import Editor from "./editor.svelte";
 
-	export let id, type, title, poster, season, seasonLimit, episode, timestamp, link, misc;
-	$: watchLater = misc.watchLater;
+  export let id, type, title, poster, season, episode, timestamp, link, misc;
 
-	let episodeEditMode = false;
-	let timestampEditMode = false;
+  $: watchLater = misc.watchLater;
 
-	function updateEpisode() {
-		episodeEditMode = false;
-		MediaStore.update(store => {
-			const media = store.find(m => m.id === id);
-			media.episode = episode;
-			return store;
-		})
-	}
+  let episodeEditMode = false;
+  let timestampEditMode = false;
 
-	function updateTimestamp() {
-		timestampEditMode = false;
-		MediaStore.update(store => {
-			const media = store.find(m => m.id === id);
-			media.timestamp = timestamp;
-			return store;
-		})
-	}
+  function updateEpisode() {
+    episodeEditMode = false;
+    MediaStore.update(store => {
+      const media = store.find(m => m.id === id);
+      media.episode = episode;
+      return store;
+    });
+  }
+
+  function updateTimestamp() {
+    timestampEditMode = false;
+    MediaStore.update(store => {
+      const media = store.find(m => m.id === id);
+      media.timestamp = timestamp;
+      return store;
+    });
+  }
 </script>
 
-<main class="shadow-2xl rounded-md bg-cover transform hover:-translate-y-2 transition-transform duration-300" style='background-image: url({poster})'>
-	<section class="flex flex-col justify-between bg-opacity-25 text-white bg-black h-full p-4">
-		<div>
-		
-			{#if watchLater}
-				<p>Watch later</p>
-			{/if}
+<main
+  class="shadow-2xl rounded-md bg-cover transform hover:-translate-y-2
+  transition-transform duration-300"
+  style="background-image: url({poster})">
+  <section
+    class="flex flex-col justify-between bg-opacity-25 text-white bg-black
+    h-full p-4">
+    <div>
 
-			{#if displayType}
-				<p>{type}</p>
-			{/if}
+      {#if watchLater}
+        <p>Watch later</p>
+      {/if}
 
-			<h1 class="cursor-pointer" on:click={() => showDetails = true}>{title}</h1>
+      {#if displayType}
+        <p>{type}</p>
+      {/if}
 
-			{#if type === 'Series'}
-				<h3>Season {season}</h3>
+      <h1 class="cursor-pointer" on:click={() => (showDetails = true)}>
+        {title}
+      </h1>
 
-				{#if episodeEditMode}
-					<input type="number" bind:value={episode} on:blur={updateEpisode} autofocus>
-				{:else}
-					<h2 on:click={() => episodeEditMode = true}>{episode}</h2>
-				{/if}
-			{/if}
+      {#if type === 'Series'}
+        <h3>Season {season}</h3>
 
-			{#if timestampEditMode}
-				<input type='text' bind:value={timestamp} step='1' on:blur={updateTimestamp} autofocus>
-			{:else}
-				<h4 on:click={() => timestampEditMode = true}>{timestamp}</h4>
-			{/if}
-		</div>
+        {#if episodeEditMode}
+          <input type="number" bind:value={episode} on:blur={updateEpisode} />
+        {:else}
+          <h2 on:click={() => (episodeEditMode = true)}>{episode}</h2>
+        {/if}
+      {/if}
 
-		{#if displayEditor}
-			<Editor {id}/>
-		{/if}
-	</section>
+      {#if timestampEditMode}
+        <input
+          type="text"
+          bind:value={timestamp}
+          step="1"
+          on:blur={updateTimestamp} />
+      {:else}
+        <h4 on:click={() => (timestampEditMode = true)}>{timestamp}</h4>
+      {/if}
+    </div>
+
+    {#if displayEditor}
+      <Editor {id} />
+    {/if}
+  </section>
 </main>
 
+{#if showDetails}
+  <Details
+    {id}
+    {season}
+    {episode}
+    {title}
+    {link}
+    {misc}
+    on:hideDetails={() => (showDetails = false)} />
+{/if}
 {#if showDetails}
 	<Details {id} {season} {episode} {title} {link} {misc} on:hideDetails={() => showDetails = false}/>
 {/if}

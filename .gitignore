@@ -2,3 +2,4 @@
 /public/build/
 /src/env.js
 .DS_Store
+.vscode/
