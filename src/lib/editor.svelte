@@ -95,12 +95,12 @@
 
       <label>
         <input class="m-2" type="checkbox" bind:checked={displaySetLink} />
-        Set link
+        <i class="fas fa-link"></i> Link
       </label>
       {#if displaySetLink}
-        <section>
-          <input type="url" placeholder="Link to watch" bind:value={link} />
-          <button on:click={setLink}>Set</button>
+        <section class="flex">
+          <input class="shadow-md h-12 rounded-md px-4" type="url" placeholder="Link to watch" bind:value={link} on:keydown={e => (e.which === 13 || e.which === 27 ? setLink() : '')}/>
+          <button class="h-12 w-12 shadow-lg rounded-full hover:bg-black hover:text-white" on:click={setLink}><i class="fas fa-check" /></button>
         </section>
       {/if}
 
@@ -110,7 +110,7 @@
           type="checkbox"
           bind:checked={watchLater}
           on:change={setWatchLater} />
-        Watch later
+        <i class="fas fa-clock" /> Later
       </label>
     </div>
   {:else}
