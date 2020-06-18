@@ -77,46 +77,43 @@
         </section>
       {/if}
 
-      <div class="flex mt-4">
+      <div class="flex my-4 justify-between">
       <button
-        class="mr-2 w-full px-2 my-2 bg-green-600 text-white rounded-md"
+        class="h-12 w-12 shadow-lg rounded-full hover:bg-black hover:text-white"
         on:click={() => editEpisode(true)}
         title="Next Episode">
         <i class="fas fa-angle-right" />
-        Next Episode
       </button>
       <button
-        class="ml-2 w-full px-2 my-2 bg-green-600 text-white rounded-md"
+        class="h-12 w-12 shadow-lg rounded-full hover:bg-black hover:text-white"
         on:click={() => editSeason(true)}
         title="Next Season">
         <i class="fas fa-angle-double-right" />
-        Next Season
       </button>
-      </div>
 
-      <div class="flex">
         <button
-          class="mr-2 w-full  px-2 my-2 bg-yellow-400 rounded-md"
+          class="h-12 w-12 shadow-lg rounded-full hover:bg-black hover:text-white"
           on:click={() => editEpisode(false)}
           title="Previous Episode">
           <i class="fas fa-angle-left" />
-          Previous Episode
         </button>
         <button
-          class="ml-2 w-full px-2 my-2 bg-yellow-400 rounded-md"
+          class="h-12 w-12 shadow-lg rounded-full hover:bg-black hover:text-white"
           on:click={() => editSeason(false)}
           title="Previous Season">
           <i class="fas fa-angle-double-left" />
-          Previous Season
         </button>
-      </div>
+
       <button
-        class="px-2 my-2 bg-red-600 text-white rounded-md"
+      class="h-12 w-12 shadow-lg rounded-full hover:bg-black hover:text-white"
         on:click={removeMedia}
         title="Remove">
         <i class="fas fa-trash-alt" />
-        Remove
       </button>
+      </div>
+
+      <!-- <div class="flex"> -->
+      <!-- </div> -->
 
 
 
