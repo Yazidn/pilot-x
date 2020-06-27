@@ -3,6 +3,8 @@
   import { MediaStore, MediaDetailsStore } from "../stores.js";
   import { createEventDispatcher } from "svelte";
   import Editor from "./editor.svelte";
+  import { scale, fade } from 'svelte/transition';
+
 
   const dispatch = createEventDispatcher();
   export let id, season, episode, title, link, misc;
@@ -22,12 +24,13 @@
 </script>
 
 <main
-  class="flex md:items-center justify-center p-8 fixed bg-white md:bg-black
-  md:bg-opacity-25 z-20 top-0 left-0 h-full w-full"
+  transition:fade
+  class="flex md:items-center justify-center p-8 fixed bg-white md:bg-transparent blur z-20 top-0 left-0 h-full w-full"
   on:click|self={() => dispatch('hideDetails')}>
   <div
-    class="w-full mx-auto sm:w-4/5 md:w-3/4 lg:w-1/2 max-w-lg bg-white
-    rounded-lg md:shadow-xl md:p-8">
+    transition:scale
+    class="h-100 w-full mx-auto sm:w-4/5 md:w-3/4 lg:w-1/2 max-w-lg bg-white
+    rounded-lg md:shadow-xl md:p-8 overflow-y-auto">
 
     <aside class="leading-none">
 
@@ -74,14 +77,14 @@
         </section>
       {:then media}
         <img
-          class="h-20"
+          class="h-20 rounded-md"
           src={media.Poster}
           title="Poster of {media.Title}"
           alt="Poster of {media.Title}" />
 
         <section class="ml-4">
-          <h3 class="text-xl">Details</h3>
-          <p>{media.Title}</p>
+          <!-- <h3 class="text-xl">Details</h3> -->
+          <p class="text-3xl font-thin">{media.Title}</p>
           <p>
             <span class="font-bold">Cast:</span>
             {media.Actors}

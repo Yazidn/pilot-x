@@ -6226,6 +6226,10 @@ video {
   height: 16rem;
 }
 
+.h-100 {
+  height: 30rem;
+}
+
 .h-auto {
   height: auto;
 }
@@ -14361,6 +14365,10 @@ video {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
 }
 
+.blur {
+  backdrop-filter: blur(2px);
+}
+
 @media (min-width: 640px) {
   .sm\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
@@ -19980,6 +19988,10 @@ video {
 
   .sm\:h-64 {
     height: 16rem;
+  }
+
+  .sm\:h-100 {
+    height: 30rem;
   }
 
   .sm\:h-auto {
@@ -33715,6 +33727,10 @@ video {
     height: 16rem;
   }
 
+  .md\:h-100 {
+    height: 30rem;
+  }
+
   .md\:h-auto {
     height: auto;
   }
@@ -47448,6 +47464,10 @@ video {
     height: 16rem;
   }
 
+  .lg\:h-100 {
+    height: 30rem;
+  }
+
   .lg\:h-auto {
     height: auto;
   }
@@ -61179,6 +61199,10 @@ video {
 
   .xl\:h-64 {
     height: 16rem;
+  }
+
+  .xl\:h-100 {
+    height: 30rem;
   }
 
   .xl\:h-auto {

@@ -122,13 +122,3 @@
     {misc}
     on:hideDetails={() => (showDetails = false)} />
 {/if}
-{#if showDetails}
-  <Details
-    {id}
-    {season}
-    {episode}
-    {title}
-    {link}
-    {misc}
-    on:hideDetails={() => (showDetails = false)} />
-{/if}

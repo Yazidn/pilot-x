@@ -21,3 +21,7 @@
 .gradient {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
 }
+
+.blur {
+  backdrop-filter: blur(2px);
+}
