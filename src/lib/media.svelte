@@ -39,7 +39,7 @@
 <main
   transition:scale={{ duration: 300 }}
   class="h-full shadow-2xl rounded-md bg-cover transform hover:-translate-y-2
-  transition-transform duration-300 overflow-hidden {watchLater ? 'opacity-50' : ''}"
+  transition-transform duration-300 overflow-hidden {watchLater ? 'grayscale' : ''}"
   style="background-image: url({poster})">
   <section class="flex flex-col justify-between text-white gradient h-full p-4">
     <div>

@@ -25,3 +25,7 @@
 .blur {
   backdrop-filter: blur(2px);
 }
+
+.grayscale {
+  filter: grayscale(100%);
+}

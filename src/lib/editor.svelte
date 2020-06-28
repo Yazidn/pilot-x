@@ -1,5 +1,7 @@
 <script>
   import { MediaStore, MediaDetailsStore } from "../stores.js";
+  import {createEventDispatcher} from 'svelte';
+  const dispatch = createEventDispatcher();
 
   export let id,
     watchLater = false;
@@ -13,6 +15,7 @@
       media.misc.watchLater = watchLater;
       return store;
     });
+    dispatch('hideDetails');
   }
 
   let displaySetLink = false;

@@ -29,12 +29,12 @@
   on:click|self={() => dispatch('hideDetails')}>
   <div
     transition:scale
-    class="h-100 w-full mx-auto sm:w-4/5 md:w-3/4 lg:w-1/2 max-w-lg bg-white
+    class="w-full mx-auto sm:w-4/5 md:w-3/4 lg:w-1/2 max-w-lg bg-white
     rounded-lg md:shadow-xl md:p-8 overflow-y-auto">
 
     <aside class="leading-none">
 
-      <Editor {id} fullEditor={true} {link} {watchLater} {title} />
+      <Editor {id} fullEditor={true} {link} {watchLater} {title} on:hideDetails/>
 
       {#if !watchLater}
         <h3 class="text-xl font-thin">Season {season}</h3>
