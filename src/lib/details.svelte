@@ -4,6 +4,7 @@
   import { createEventDispatcher } from "svelte";
   import Editor from "./editor.svelte";
   import { scale, fade } from 'svelte/transition';
+  import { Preferences } from "../stores.js";
 
 
   const dispatch = createEventDispatcher();
@@ -25,12 +26,12 @@
 
 <main
   transition:fade
-  class="flex md:items-center justify-center p-8 fixed bg-white md:bg-transparent blur z-20 top-0 left-0 h-full w-full"
+  class="flex md:items-center justify-center fixed bg-{$Preferences.modalBackground} z-20 top-0 left-0 h-full w-full"
   on:click|self={() => dispatch('hideDetails')}>
   <div
     transition:scale
-    class="w-full mx-auto sm:w-4/5 md:w-3/4 lg:w-1/2 max-w-lg bg-white
-    rounded-lg md:shadow-xl md:p-8 overflow-y-auto">
+    class="h-full w-screen  md:h-auto lg:w-1/2 max-w-lg bg-white
+    rounded-lg md:shadow-xl p-8 overflow-y-auto">
 
     <aside class="leading-none">
 

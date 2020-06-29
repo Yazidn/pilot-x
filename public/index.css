@@ -14365,12 +14365,27 @@ video {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
 }
 
-.blur {
-  backdrop-filter: blur(2px);
-}
-
 .grayscale {
   filter: grayscale(100%);
+}
+
+.bg-blur {
+  backdrop-filter: blur(2px);
+  background-color: transparent;
+}
+
+.bg-wash {
+  --bg-opacity: 1;
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, var(--bg-opacity));
+  --bg-opacity: 0.75;
+}
+
+.bg-dim {
+  --bg-opacity: 1;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, var(--bg-opacity));
+  --bg-opacity: 0.25;
 }
 
 @media (min-width: 640px) {

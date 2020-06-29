@@ -22,10 +22,21 @@
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
 }
 
-.blur {
-  backdrop-filter: blur(2px);
-}
-
 .grayscale {
   filter: grayscale(100%);
+}
+
+.bg-blur {
+  backdrop-filter: blur(2px);
+  @apply bg-transparent;
+}
+
+.bg-wash {
+  @apply bg-white;
+  @apply bg-opacity-75;
+}
+
+.bg-dim {
+  @apply bg-black;
+  @apply bg-opacity-25;
 }
