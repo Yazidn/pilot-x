@@ -8,7 +8,7 @@
 
 
   const dispatch = createEventDispatcher();
-  export let id, season, episode, title, link, misc;
+  export let id, season, episode, title, link, misc, timestamp, type;
   $: watchLater = misc.watchLater;
   const MEDIA = new Promise((resolve, reject) =>
     resolve($MediaDetailsStore.find(m => m.id === id) || fetchMediaDetails())
@@ -35,11 +35,15 @@
 
     <aside class="leading-none">
 
-      <Editor {id} fullEditor={true} {link} {watchLater} {title} on:hideDetails/>
+      <Editor {id} fullEditor={true} {link} {watchLater} {title} {type} on:hideDetails/>
 
       {#if !watchLater}
-        <h3 class="text-xl font-thin">Season {season}</h3>
-        <h2 class="text-4xl mb-8 font-thin">Episode {episode}</h2>
+        {#if type === 'Series'}
+          <h3 class="text-xl font-thin">Season {season}</h3>
+          <h2 class="text-3xl font-thin my-2">Episode {episode}</h2>
+        {/if}
+
+        <h2 class="text-lg font-thin mb-8 {type !== 'Series' ? 'text-2xl': ''}">{timestamp}</h2>
       {/if}
 
     </aside>

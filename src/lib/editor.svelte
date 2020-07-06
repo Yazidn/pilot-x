@@ -3,11 +3,12 @@
   import {createEventDispatcher} from 'svelte';
   const dispatch = createEventDispatcher();
 
-  export let id,
+  export let id, type,
     watchLater = false;
   export let fullEditor = false,
     link = "",
     title = "";
+
 
   function setWatchLater() {
     MediaStore.update(store => {
@@ -65,18 +66,18 @@
 
       {#if !watchLater}
         <!-- Editor Buttons -->
-        <div class="flex justify-between mb-8">
+        <div class="flex justify-{type === 'Series' ? 'between':'evenly'} mb-8">
           {#if link}
             <a target="_blank" href={link} title="Watch {title}">
               <button
                 class="h-12 w-12 shadow-lg rounded-full hover:bg-blue-500
-                hover:text-white"
-                on:click={() => editEpisode(true)}>
-                <i class="fas fa-tv" />
+                hover:text-white">
+                <i class="fas fa-tv"/>
               </button>
             </a>
           {/if}
-
+          
+          {#if type === 'Series'}
           <button
             class="h-12 w-12 shadow-lg rounded-full hover:bg-green-500
             hover:text-white"
@@ -106,6 +107,7 @@
             title="Previous Season">
             <i class="fas fa-angle-double-left" />
           </button>
+          {/if}
 
           <button
             class="h-12 w-12 shadow-lg rounded-full hover:bg-red-500
@@ -138,7 +140,7 @@
 
       <!-- Watch Link Editor -->
       {#if displaySetLink}
-        <section class="flex w-full">
+        <section class="flex w-full mt-4">
           <input
             class="mr-2 flex-grow shadow-md h-12 rounded-md px-4"
             type="url"
@@ -161,12 +163,16 @@
       <button on:click={removeMedia} title="Remove">
         <i class="fas fa-trash-alt" />
       </button>
+
+      {#if type === 'Series'}
       <button on:click={() => editEpisode(true)} title="Next Episode">
         <i class="fas fa-angle-right" />
       </button>
       <button on:click={() => editSeason(true)} title="Next Season">
         <i class="fas fa-angle-double-right" />
       </button>
+      {/if}
+
     </div>
   {/if}
 </main>

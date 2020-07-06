@@ -120,5 +120,7 @@
     {title}
     {link}
     {misc}
+    {timestamp}
+    {type}
     on:hideDetails={() => (showDetails = false)} />
 {/if}
