@@ -107,7 +107,7 @@
     </div>
 
     {#if displayEditor && !watchLater}
-      <Editor {id} />
+      <Editor {id} {type}/>
     {/if}
   </section>
 </main>
