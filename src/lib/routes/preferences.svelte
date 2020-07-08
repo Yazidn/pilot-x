@@ -37,7 +37,7 @@
       bind:group={$Preferences.modalBackground}
       value='blur'
       />
-    Blurred
+    Blur
   </label>
   <label>
     <input
@@ -46,7 +46,7 @@
       bind:group={$Preferences.modalBackground}
       value='wash'
       />
-    WashedOut
+    Lighten
   </label>
   <label>
     <input
