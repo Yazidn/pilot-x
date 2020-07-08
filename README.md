@@ -14,24 +14,16 @@ An app that tracks your shows and movies, simple and to the point.
 
 # Screenshot
 ### Homepage
-![empty](https://raw.githubusercontent.com/Yazidn/pilot-x/master/screenshots/1_empty.png) ![full](https://raw.githubusercontent.com/Yazidn/pilot-x/master/screenshots/3_list.png) ![watchlater](https://raw.githubusercontent.com/Yazidn/pilot-x/master/screenshots/5_watch_later_list.png)
-
----
+![watchlater](https://raw.githubusercontent.com/Yazidn/pilot-x/master/screenshots/5_watch_later_list.png)
 
 ### Add
 ![add](https://raw.githubusercontent.com/Yazidn/pilot-x/master/screenshots/2_add_screen.png)
 
----
-
 ### Details
-![show](https://raw.githubusercontent.com/Yazidn/pilot-x/master/screenshots/4_details.png) ![showwatchlater](https://raw.githubusercontent.com/Yazidn/pilot-x/master/screenshots/6_details_watch_later.png)
-
----
+![show](https://raw.githubusercontent.com/Yazidn/pilot-x/master/screenshots/4_details.png)
 
 ### Preferences
 ![preferences](https://raw.githubusercontent.com/Yazidn/pilot-x/master/screenshots/7_preferences.png)
-
----
 
 ## Notes
 - Fixes and new features are being added from time to time.
