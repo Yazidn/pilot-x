@@ -1,14 +1,16 @@
-# pilot-x
-A rewrite of pilot. using Svelte this time, the goal with this was for it to be a small component of a bigger project
-that i haven't started working on yet.
+# Pilot X
+An app that tracks your shows and movies, simple and to the point.
+
+### Attribution
+**Icon:** Movie by Creaticca Creative Agency from the Noun Project.
 
 # Features
-- Stay up to date with where you left off.
-- Keep a "wishlist" of things you want to watch in the future, and never forget.
 - Automatic search and autocomplete, adding a series is very straightforward.
-- It gets the job done, nothing more.
+- Keep a "wishlist" of things you want to watch in the future, and never forget.
 - The ability to set a link of your liking for each show for quick access, unclutter your bookmarks.
 - A bit of customization so you feel in control, to a certain degree. 
+- It gets the job done, nothing more.
+- Stay up to date with where you left off.
 
 # Screenshot
 ### Homepage
@@ -21,5 +23,5 @@ that i haven't started working on yet.
 ![pilotx preferences](https://i.imgur.com/SM8zrz9.png)
 
 ## Notes
-- This is still a work in progress (more like unfinished, albeit usable), it'll get better over time.
-- Built in [Svelte](https://svelte.dev/) & Styled with [TailwindCSS](https://tailwindcss.com)
+- Fixes and new features are being added from time to time.
+- This is a re-write of [pilot](https://github.com/Yazidn/pilot-alpha). using [Svelte](https://svelte.dev) this time, the goal with this was for it to be a small component of a bigger project that i haven't started working on yet.
