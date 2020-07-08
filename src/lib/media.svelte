@@ -1,22 +1,24 @@
 <script>
   import { scale } from "svelte/transition";
-
   import { MediaStore, Preferences } from "../stores.js";
+  import Details from "./details.svelte";
+  import Editor from "./editor.svelte";
+
+  // IN-CARD DISPLAY PREFERENCES
   let displayEditor = $Preferences.displayEditor;
   let displayType = $Preferences.displayType;
 
-  import Details from "./details.svelte";
+  // MEDIA DETAILS DISPLAY STATE
   let showDetails = false;
 
-  import Editor from "./editor.svelte";
-
   export let id, type, title, poster, season, episode, timestamp, link, misc;
-
   $: watchLater = misc.watchLater;
 
+  // IN-CARD TEXT INPUTS DISPLAY STATE
   let episodeEditMode = false;
   let timestampEditMode = false;
 
+  // CONFIRM CHANGES THROUGH TEXT INPUTS, FOR BOTH EPISODE AND TIMESTAMP.
   function updateEpisode() {
     episodeEditMode = false;
     MediaStore.update(store => {
@@ -36,14 +38,18 @@
   }
 </script>
 
+<!-- CARD -->
 <main
   transition:scale={{ duration: 300 }}
   class="h-full shadow-2xl rounded-md bg-cover transform hover:-translate-y-2
   transition-transform duration-300 overflow-hidden {watchLater ? 'grayscale' : ''}"
   style="background-image: url({poster})">
+
+  <!-- GRADIENT OVERLAY -->
   <section class="flex flex-col justify-between text-white gradient h-full p-4">
     <div>
 
+      <!-- MEDIA TYPE DISPLAY PREFERENCE -->
       {#if displayType}
         <p>
           <i class="fas fa-film" />
@@ -51,6 +57,7 @@
         </p>
       {/if}
 
+      <!-- WHAT AND HOW TO DISPLAY DEPENDING ON WATCH LATER STATE-->
       {#if watchLater}
         <h1
           class="cursor-pointer hover:text-gray-300"
@@ -66,9 +73,13 @@
         </h1>
       {/if}
 
+      <!-- INTERACTIONS WITH TEXT INPUTS DEPENDING ON TYPE AND WATCH LATER STATE -->
       {#if type === 'Series' && !watchLater}
+
+        <!-- ONLY DISPLAY SEASON FOR TV SHOWS, NOT MOVIES -->
         <h3>Season {season}</h3>
 
+        <!-- EPISODE TEXT INPUT FIELD -->
         {#if episodeEditMode}
           <input
             class="pt-8 text-4xl w-full bg-transparent text-center outline-none"
@@ -86,6 +97,7 @@
         {/if}
       {/if}
 
+      <!-- TIMESTAMP TEXT INPUT FIELD -->
       {#if !watchLater}
         {#if timestampEditMode}
           <input
@@ -106,12 +118,14 @@
 
     </div>
 
+    <!-- QUICK EDITOR DISPLAY PREFERENCE -->
     {#if displayEditor && !watchLater}
       <Editor {id} {type}/>
     {/if}
   </section>
 </main>
 
+<!-- MEDIA DETAILS MODAL -->
 {#if showDetails}
   <Details
     {id}

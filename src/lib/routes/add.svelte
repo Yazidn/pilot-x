@@ -9,8 +9,11 @@
     found,
     notfound,
     imdbID = "";
+  
+  // WHETHER TO SEARCH BY ID BY DEFAULT
   let advanced = $Preferences.advancedSearch;
 
+  // SEARCH FOR SHOW/MOVIE AND "SELECT" IT.
   async function find() {
     let url = `https://www.omdbapi.com/?apikey=${key}${
       value ? `&t=${value}` : ``
@@ -43,6 +46,7 @@
     }
   }
 
+  // ADD SELECTED MEDIA TO STORAGE
   function add() {
     if ((!value && !imdbID) || notfound) {
       alert("Please provide a title or an imdb ID.");
@@ -55,6 +59,7 @@
     current.set("home");
   }
 
+  // RESET COMPONENT STATE
   const resetLocalState = () =>
     ([found, notfound, media, mediaDetails, value, imdbID] = [
       false,
@@ -71,6 +76,7 @@
   pb-20">
   <form on:submit|preventDefault={add}>
     {#if !advanced}
+      <!-- SEARCH BY TITLE TEXT INPUT -->
       <input
         class="shadow-md h-12 rounded-md px-4"
         type="text"
@@ -80,6 +86,7 @@
         class:notfound
         class:found />
     {:else}
+      <!-- SEARCH BY ID TEXT INPUT -->
       <input
         class="shadow-md h-12 rounded-md px-4"
         type="text"
@@ -89,17 +96,22 @@
         class:notfound
         class:found />
     {/if}
+    <!-- CHECKBOX FOR SEARCH BY TITLE OR ID -->
     <input
       class="mx-8"
       title="Search by ID"
       type="checkbox"
       bind:checked={advanced} />
+    
+    <!-- ADD MEDIA TO LIST BUTTON -->
     <button
       class="h-12 w-12 shadow-lg rounded-full hover:bg-black hover:text-white"
       type="submit">
       <i class="fas fa-check" />
     </button>
   </form>
+
+  <!-- VISUAL FEEDBACK WHEN SEARCHING AND SELECTING -->
   <p>
     Selected:
     <span>{media.title || 'N/A'}</span>
