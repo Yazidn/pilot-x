@@ -33,6 +33,7 @@
       const media = store.find(m => m.id === id);
       if (next) media.episode++;
       else if (media.episode >= 1) media.episode--;
+      media.timestamp = '00:00:00';
       return store;
     });
   }
@@ -50,6 +51,7 @@
             }.`
           );
       } else if (media.season >= 1) media.season--;
+      media.timestamp = '00:00:00';
       return store;
     });
   }
